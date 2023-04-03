@@ -21,8 +21,10 @@ public class UserController {
          userService.createUser(user);
     return new ResponseEntity<>("User created with the name:"+ user.getFullName(), HttpStatus.CREATED);}
 @GetMapping("/getAllUsers")
-    public ResponseEntity<List<User>>getUser(){
-    return new ResponseEntity<>(userService.getUser(), HttpStatus.ACCEPTED);}
+    public ResponseEntity<String> getUser(){
+        List<User> list = userService.getUser();
+    return new ResponseEntity<>("Success", HttpStatus.ACCEPTED);}
+
 @PutMapping("/updateUser")
 public  ResponseEntity<String> updateUser(@RequestParam String id,@RequestParam String username){
 userService.updateUser(id, username);

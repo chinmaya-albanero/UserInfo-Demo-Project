@@ -38,6 +38,10 @@ public class User{
     @Size(max=100)
     private String currentOrganization;
 
+    public User(String username, String fullName, String email) {
+    }
+
+
     public void replaceVowelsWithSpecialChars() {
         String specialChars = "!@#$%^&*()_+-={}[]\\|:\";'<>?,./";
         Random random = new Random();
