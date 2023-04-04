@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,27 +13,37 @@ import java.util.List;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
-
-    public void createUser(User user){
-
-        userRepository.save(user);
+    public User addUser(User user) {
+        return userRepository.save(user);
     }
 
-    public List<User> getUser() {
-        List<User> list= userRepository.findAll();
-        return list;
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+
+    public User updateUser(String id, User updatedUser) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user == null) {
+            return null;
+        }
+
+
+        user.setUsername(updatedUser.getUsername());
+        user.setFullName(updatedUser.getFullName());
+        user.setEmail(updatedUser.getEmail());
+        user.setAddress(updatedUser.getAddress());
+        user.setMobileNumber(updatedUser.getMobileNumber());
+        user.setCurrentOrganization(updatedUser.getCurrentOrganization());
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(String id) {
+        userRepository.deleteById(id);
+    }
 
 }
 
-public void updateUser(String id , String username){
-        User user = userRepository.findById(id).get();
-        user.setUsername(username);
-userRepository.save(user);
-}
 
-public void deleteUser(String id){
-        User user = userRepository.findById(id).get();
-        userRepository.delete(user);
 
-}
-}
+

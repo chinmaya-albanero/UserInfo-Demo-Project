@@ -38,8 +38,72 @@ public class User{
     @Size(max=100)
     private String currentOrganization;
 
-    public User(String username, String fullName, String email) {
+    public User(String username, String fullName, String email, String address, String mobileNumber, String currentOrganization) {
+        this.username = username;
+        this.fullName = fullName;
+        this.email = email;
+        this.address = address;
+        this.mobileNumber = mobileNumber;
+        this.currentOrganization = currentOrganization;
     }
+
+    // getters and setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getCurrentOrganization() {
+        return currentOrganization;
+    }
+
+    public void setCurrentOrganization(String currentOrganization) {
+        this.currentOrganization = currentOrganization;
+    }
+
 
 
     public void replaceVowelsWithSpecialChars() {
@@ -55,6 +119,8 @@ public class User{
         }
         fullName = sb.toString();
     }
+
+
 }
 /**
  * Construct a POST API that takes in user details

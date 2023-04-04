@@ -19,19 +19,21 @@ public class SampleTestUsingRestTemplate {
    public void  testcaseForPOSTAPI(){
        TestRestTemplate testRestTemplate = new TestRestTemplate();
        // create new user object
-       User newUser = new User("Alice", "Smith", "alice.smith@example.com");
-       ResponseEntity<String> response = testRestTemplate.postForEntity(
-               url  + "/userAPI/createUser", newUser, String.class);
+       User newUser = new User("Alice", "Smith", "alice.smith@example.com","puri,odisha","89868543","Alabanero");
+       ResponseEntity<User> response = testRestTemplate.postForEntity(
+               url  + "/userAPI/createUser", newUser, User.class);
 
        Assertions.assertEquals(response.getStatusCode(), HttpStatus.CREATED);
 
    }
     @Test
-
     public  void testcaseForGETAPI(){
         TestRestTemplate testRestTemplate = new TestRestTemplate();
 
     ResponseEntity<String> response = testRestTemplate.getForEntity(url + "/userAPI/getAllUsers" , String.class);
       Assertions.assertEquals(response.getStatusCode(), HttpStatus.ACCEPTED);
     }
+
+
+
 }
