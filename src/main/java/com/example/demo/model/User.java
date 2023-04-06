@@ -38,13 +38,17 @@ public class User{
     @Size(max=100)
     private String currentOrganization;
 
-    public User(String username, String fullName, String email, String address, String mobileNumber, String currentOrganization) {
+    public User( String id   ,String username, String fullName, String email, String address, String mobileNumber, String currentOrganization) {
         this.username = username;
         this.fullName = fullName;
         this.email = email;
         this.address = address;
         this.mobileNumber = mobileNumber;
         this.currentOrganization = currentOrganization;
+    }
+
+    public User() {
+
     }
 
     // getters and setters
@@ -119,6 +123,7 @@ public class User{
         }
         fullName = sb.toString();
     }
+
 
 
 }

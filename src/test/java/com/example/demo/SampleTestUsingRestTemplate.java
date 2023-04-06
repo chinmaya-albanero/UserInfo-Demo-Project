@@ -19,7 +19,7 @@ public class SampleTestUsingRestTemplate {
    public void  testcaseForPOSTAPI(){
        TestRestTemplate testRestTemplate = new TestRestTemplate();
        // create new user object
-       User newUser = new User("Alice", "Smith", "alice.smith@example.com","puri,odisha","89868543","Alabanero");
+       User newUser = new User("304","Alice", "Smith", "alice.smith@example.com","puri,odisha","89868543","Alabanero");
        ResponseEntity<User> response = testRestTemplate.postForEntity(
                url  + "/userAPI/createUser", newUser, User.class);
 
